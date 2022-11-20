@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "936041428030",
+    "project_id": "app-filmes-getx",
+    "storage_bucket": "app-filmes-getx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936041428030:android:229516f1c342a185c0cd6f",
+        "android_client_info": {
+          "package_name": "br.com.darkersoft.app_filmes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936041428030-4bp14r6biaacpqor7qk64olsota2sp12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.darkersoft.app_filmes",
+            "certificate_hash": "633938ed1c7c145775f94fe392ac5d15519f3de4"
+          }
+        },
+        {
+          "client_id": "936041428030-0l3518ocjrqq58qv7cvg1ndr9mmkekhp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkXm6-uhOjosgV1-PHudLfQj1Ysu1JHYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936041428030-0l3518ocjrqq58qv7cvg1ndr9mmkekhp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
