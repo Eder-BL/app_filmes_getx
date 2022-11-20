@@ -1,6 +1,6 @@
 # app_filmes
 
-A new Flutter project.
+📖 Projeto de estudo do GetX
 
 ## Getting Started
 
