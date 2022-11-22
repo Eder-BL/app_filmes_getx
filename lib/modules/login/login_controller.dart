@@ -15,9 +15,9 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
 
   @override
   void onInit() {
+    super.onInit();
     loaderListener(loading);
     messageListener(message);
-    super.onInit();
   }
 
   Future<void> login() async {
@@ -32,8 +32,7 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
         ),
       );
     } catch (e, s) {
-      log(e.toString(), name: 'login()');
-      log(s.toString(), name: 'login()');
+      log('Google Login Exception', error: e.toString(), stackTrace: s);
       loading(false);
       message(
         MessageModel.erro(
