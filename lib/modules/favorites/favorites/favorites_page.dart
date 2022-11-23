@@ -1,6 +1,8 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import './favorites_controller.dart';
 
-class FavoritesPage extends StatelessWidget {
+class FavoritesPage extends GetView<FavoritesController> {
   const FavoritesPage({Key? key}) : super(key: key);
 
   @override

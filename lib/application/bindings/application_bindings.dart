@@ -10,11 +10,11 @@ class ApplicationBindings implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<LoginRepository>(
-          () => LoginRepositoryImpl(),
+      () => LoginRepositoryImpl(),
       fenix: true,
     );
     Get.lazyPut<LoginService>(
-          () => LoginServiceImpl(
+      () => LoginServiceImpl(
         loginRepository: Get.find(),
       ),
       fenix: true,

@@ -1,5 +1,6 @@
 import 'package:app_filmes/application/ui/filmes_app_icons_icons.dart';
-import 'package:app_filmes/modules/favorites/favorites_page.dart';
+import 'package:app_filmes/modules/favorites/favorites/favorites_bindings.dart';
+import 'package:app_filmes/modules/favorites/favorites/favorites_page.dart';
 import 'package:app_filmes/modules/movies/movies_bindings.dart';
 import 'package:app_filmes/modules/movies/movies_page.dart';
 import 'package:get/get.dart';
@@ -13,25 +14,6 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Navigator(
-        key: Get.nestedKey(1),
-        initialRoute: '/movies',
-        onGenerateRoute: (settings) {
-          if (settings.name == '/movies') {
-            return GetPageRoute(
-                settings: settings,
-                page: () => const MoviesPage(),
-                binding: MoviesBindings());
-          }
-          if (settings.name == '/favorites') {
-            return GetPageRoute(
-              settings: settings,
-              page: () => const FavoritesPage(),
-            );
-          }
-          return null;
-        },
-      ),
       bottomNavigationBar: Obx(
         () {
           return BottomNavigationBar(
@@ -54,6 +36,27 @@ class HomePage extends GetView<HomeController> {
               ),
             ],
           );
+        },
+      ),
+      body: Navigator(
+        initialRoute: '/movies',
+        key: Get.nestedKey(HomeController.NAVIGATOR_KEY),
+        onGenerateRoute: (settings) {
+          if (settings.name == '/movies') {
+            return GetPageRoute(
+              settings: settings,
+              page: () => const MoviesPage(),
+              binding: MoviesBindings(),
+            );
+          }
+          if (settings.name == '/favorites') {
+            return GetPageRoute(
+              settings: settings,
+              page: () => const FavoritesPage(),
+              binding: FavoritesBindings(),
+            );
+          }
+          return null;
         },
       ),
     );
