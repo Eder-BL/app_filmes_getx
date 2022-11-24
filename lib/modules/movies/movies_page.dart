@@ -1,16 +1,22 @@
+import 'package:app_filmes/modules/movies/widgets/movies_filters.dart';
+import 'package:app_filmes/modules/movies/widgets/movies_header.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import './movies_controller.dart';
 
 class MoviesPage extends GetView<MoviesController> {
-    
-    const MoviesPage({Key? key}) : super(key: key);
+  const MoviesPage({Key? key}) : super(key: key);
 
-    @override
-    Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(title: const Text('MoviesPage'),),
-            body: Container(),
-        );
-    }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: Get.width,
+      child: ListView(
+        children: const [
+          MoviesHeader(),
+          MoviesFilters(),
+        ],
+      ),
+    );
+  }
 }
