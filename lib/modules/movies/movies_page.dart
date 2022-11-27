@@ -1,4 +1,5 @@
 import 'package:app_filmes/modules/movies/widgets/movies_filters.dart';
+import 'package:app_filmes/modules/movies/widgets/movies_group.dart';
 import 'package:app_filmes/modules/movies/widgets/movies_header.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ class MoviesPage extends GetView<MoviesController> {
         children: const [
           MoviesHeader(),
           MoviesFilters(),
+          MoviesGroup(title: 'Mais populares'),
+          MoviesGroup(title: 'Top filmes'),
         ],
       ),
     );
