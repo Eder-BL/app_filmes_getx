@@ -1,15 +1,27 @@
+import 'dart:developer';
+
 import 'package:app_filmes/application/ui/messages/messages_mixin.dart';
 import 'package:app_filmes/models/genres_model.dart';
+import 'package:app_filmes/models/movie_model.dart';
 import 'package:app_filmes/services/genres/genres_service.dart';
+import 'package:app_filmes/services/movies/movies_service.dart';
 import 'package:get/get.dart';
 
 class MoviesController extends GetxController with MessagesMixin {
   final GenresService _genresService;
+  final MoviesService _moviesService;
   final _message = Rxn<MessageModel>();
   final genres = <GenresModel>[].obs;
+  final popularMovies = <MovieModel>[].obs;
+  final topRatedMovies = <MovieModel>[].obs;
+  final _popularMoviesOriginal = <MovieModel>[];
+  final _topRatedMoviesOriginal = <MovieModel>[];
 
-  MoviesController({required GenresService genresService})
-      : _genresService = genresService;
+  MoviesController({
+    required GenresService genresService,
+    required MoviesService moviesService,
+  })  : _genresService = genresService,
+        _moviesService = moviesService;
 
   @override
   void onInit() {
@@ -21,11 +33,17 @@ class MoviesController extends GetxController with MessagesMixin {
   Future<void> onReady() async {
     super.onReady();
     try {
-      final genres = await _genresService.getGenres();
-      this.genres.assignAll(genres);
-    } catch (e) {
+      final genresData = await _genresService.getGenres();
+      genres.assignAll(genresData);
+      final popularMoviesData = await _moviesService.getPopularMovies();
+      final topRatedMoviesData = await _moviesService.getTopRated();
+
+      popularMovies.assignAll(popularMoviesData);
+      topRatedMovies.assignAll(topRatedMoviesData);
+    } catch (e, s) {
+      log('Erro', error: e, stackTrace: s);
       _message(MessageModel.erro(
-          title: 'Erro', message: 'Erro ao buscar Categorias'));
+          title: 'Erro', message: 'Erro ao carregar dados da página'));
     }
   }
 }
