@@ -1,6 +1,7 @@
 # app_filmes
 
 📖 Projeto de estudo do GetX
+👩‍🏫 [Academia do Flutter](https://academiadoflutter.com.br/)
 
 ## Getting Started
 
