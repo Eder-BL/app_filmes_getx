@@ -14,8 +14,8 @@ import '../auth/auth_service.dart';
 class ApplicationBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => RestClient(), fenix: true);
     Get.put(AuthService()).init();
+    Get.lazyPut(() => RestClient(), fenix: true);
     Get.lazyPut<LoginRepository>(
       () => LoginRepositoryImpl(),
       fenix: true,
@@ -27,8 +27,10 @@ class ApplicationBindings implements Bindings {
       fenix: true,
     );
     Get.lazyPut<MoviesRepository>(
-        () => MoviesRepositoryImpl(restClient: Get.find()));
+        () => MoviesRepositoryImpl(restClient: Get.find()),
+        fenix: true);
     Get.lazyPut<MoviesService>(
-        () => MoviesServiceImpl(moviesRepository: Get.find()));
+        () => MoviesServiceImpl(moviesRepository: Get.find()),
+        fenix: true);
   }
 }
